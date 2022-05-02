@@ -3,9 +3,10 @@ import React from 'react';
 type ButtonPropsType = {
     name: string
     callBack: () => void
+    isDisabled: boolean
 }
 
-const Button = ({name, callBack}: ButtonPropsType) => {
+const Button = ({name, callBack, isDisabled}: ButtonPropsType) => {
 
     const onClickHandler = () => {
         callBack()
@@ -13,7 +14,7 @@ const Button = ({name, callBack}: ButtonPropsType) => {
 
     return (
         <div>
-            <button onClick={onClickHandler}>{name}</button>
+            <button onClick={onClickHandler} disabled={isDisabled}>{name}</button>
         </div>
     );
 };

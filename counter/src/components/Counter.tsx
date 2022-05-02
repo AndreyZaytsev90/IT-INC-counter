@@ -13,8 +13,8 @@ const Counter = () => {
     return (
         <div>
             <Screen value={value}/>
-            <Button name={"Inc"} callBack={IncButtonHandler}/>
-            <Button name={"Reset"} callBack={ResetButtonHandler}/>
+            <Button name={"Inc"} callBack={IncButtonHandler} isDisabled={value === 5}/>
+            <Button name={"Reset"} callBack={ResetButtonHandler} isDisabled={value < 5}/>
         </div>
     );
 };
