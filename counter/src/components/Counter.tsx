@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
-import Screen from "./Screen";
-import Button from "./Button";
+import {Screen} from "./Screen";
+import {Button} from "./Button";
+import style from "../css/counter.module.css"
+
 
 const Counter = () => {
 
@@ -11,7 +13,7 @@ const Counter = () => {
     const ResetButtonHandler = () => value === 5 ? setValue(0): value
 
     return (
-        <div>
+        <div className={style.counter}>
             <Screen value={value}/>
             <Button name={"Inc"} callBack={IncButtonHandler} isDisabled={value === 5}/>
             <Button name={"Reset"} callBack={ResetButtonHandler} isDisabled={value < 5}/>

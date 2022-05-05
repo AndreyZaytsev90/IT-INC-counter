@@ -1,4 +1,5 @@
 import React from 'react';
+import style from "../css/button.module.css"
 
 type ButtonPropsType = {
     name: string
@@ -6,17 +7,15 @@ type ButtonPropsType = {
     isDisabled: boolean
 }
 
-const Button = ({name, callBack, isDisabled}: ButtonPropsType) => {
+export const Button = ({name, callBack, isDisabled}: ButtonPropsType) => {
 
     const onClickHandler = () => {
         callBack()
     }
 
     return (
-        <div>
+        <div className={style.counterButtons}>
             <button onClick={onClickHandler} disabled={isDisabled}>{name}</button>
         </div>
     );
 };
-
-export default Button;
