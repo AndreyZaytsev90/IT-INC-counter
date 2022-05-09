@@ -15,8 +15,10 @@ const Counter = () => {
     return (
         <div className={style.counter}>
             <Screen value={value}/>
-            <Button name={"Inc"} callBack={IncButtonHandler} isDisabled={value === 5}/>
-            <Button name={"Reset"} callBack={ResetButtonHandler} isDisabled={value < 5}/>
+            <div className={style.fieldWithButtons}>
+                <Button name={"Inc"} callBack={IncButtonHandler} isDisabled={value === 5}/>
+                <Button name={"Reset"} callBack={ResetButtonHandler} isDisabled={value < 5}/>
+            </div>
         </div>
     );
 };
