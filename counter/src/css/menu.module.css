@@ -1,12 +1,31 @@
 .counterMenu {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
     border-style: solid;
     background: #f0f0f0;
-    border-width:  5px 5px 5px 5px;
+    border-width:  5px;
     border-color: cornflowerblue;
     border-radius: 10px;
     width: 330px;
     height: 150px;
-    margin-top: 30px;
-    margin-left: 30px;
 }
+.values {
+    display: flex;
+    align-items: center;
+    font-family: Arial, serif;
+    font-weight: bolder;
+}
+
+.input {
+    width: 100px;
+    height: 20px;
+    margin-left: 45px;
+    border-style: solid;
+    background: #f0f0f0;
+    border-width:  5px;
+    border-radius: 10px;
+    border-color: cornflowerblue;
+}
+

@@ -1,5 +1,4 @@
 .counterButtons {
-    display: inline-block;
-    margin-top: 50px;
-    margin-left: 80px;
+    display: flex;
+    justify-content: space-between;
 }

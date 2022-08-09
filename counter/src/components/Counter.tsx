@@ -4,29 +4,27 @@ import {Button} from "./Button";
 import style from "../css/counter.module.css"
 
 type CounterPropsType = {
+    maxValue: number
+    startValue: number
     value: number
     incButtonHandler: () => void
     resetButtonHandler: () => void
+    error: string
 }
 
 const Counter = (props: CounterPropsType) => {
 
-    const {value, incButtonHandler, resetButtonHandler} = props
+    const {maxValue, startValue, value, incButtonHandler, resetButtonHandler, error} = props
 
     return (
-        <div className={style.counter}>
-            <Screen
-                value={value}
-            />
+        <div>
+            <Screen maxValue={maxValue} startValue={startValue} value={value} error={error}/>
+
             <div className={style.fieldWithButtons}>
-                <Button name={"Inc"}
-                        callBack={incButtonHandler}
-                        isDisabled={value === 5}
-                />
-                <Button name={"Reset"}
-                        callBack={resetButtonHandler}
-                        isDisabled={value < 5}
-                />
+
+                <Button name={"Inc"} callBack={incButtonHandler} isDisabled={value === maxValue}/>
+                <Button name={"Reset"} callBack={resetButtonHandler} isDisabled={value < maxValue}/>
+
             </div>
         </div>
     );

@@ -1,28 +1,32 @@
-import React, {useState} from 'react';
-import {Screen} from "./Screen";
+import React from 'react';
 import {Button} from "./Button";
 import style from "../css/settings.module.css"
 import Menu from "./Menu";
 
 
 type SettingsPropsType = {
-
+    maxValue: number
+    setMaxValue: (maxValue: number) => void
     startValue: number
+    setStartValue: (startValue: number) => void
     setButtonHandler: () => void
 }
 
-export const Settings = ({ startValue, setButtonHandler}: SettingsPropsType) => {
+export const Settings = ({maxValue, setMaxValue, startValue, setStartValue, setButtonHandler}: SettingsPropsType) => {
 
 
     return (
-        <div className={style.settings}>
+        <div>
             <Menu
+                maxValue={maxValue}
+                setMaxValue={setMaxValue}
                 startValue={startValue}
+                setStartValue={setStartValue}
             />
             <div className={style.fieldWithButtons}>
                 <Button name={"Set"}
                         callBack={setButtonHandler}
-                        isDisabled={false}/>
+                        isDisabled={false}></Button>
             </div>
         </div>
     );
