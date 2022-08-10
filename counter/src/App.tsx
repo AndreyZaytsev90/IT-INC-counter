@@ -7,8 +7,8 @@ import {Settings} from "./components/Settings";
 function App() {
     //// counter
     const [value, setValue] = useState<number>(0)
-    const incButtonHandler = () => value < maxValue ? setValue(value+1): value
-    const resetButtonHandler = () => value === maxValue ? setValue(0): value
+    const incButtonHandler = () => value < maxValue ? setValue(value + 1) : value
+    const resetButtonHandler = () => value === maxValue ? setValue(0) : value
     ////
 
 
@@ -16,12 +16,18 @@ function App() {
     const [startValue, setStartValue] = useState<number>(0)
     const [error, setError] = useState<string>('')
 
+
     const setButtonHandler = () => {
-        if(value != startValue) {
+
+        if (value != startValue || startValue < maxValue) {
             setValue(startValue)
             setStartValue(startValue)
+            setError('')
+        } else {
+            setError("Incorrect value!")
         }
-        if(startValue >= maxValue) {
+
+        if (startValue < 0 || startValue >= maxValue || maxValue < 0) {
             setError("Incorrect value!")
         }
 

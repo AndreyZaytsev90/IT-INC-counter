@@ -26,7 +26,7 @@ export const Settings = ({maxValue, setMaxValue, startValue, setStartValue, setB
             <div className={style.fieldWithButtons}>
                 <Button name={"Set"}
                         callBack={setButtonHandler}
-                        isDisabled={false}></Button>
+                        isDisabled={(startValue < 0 || startValue >= maxValue || maxValue < 0)}></Button>
             </div>
         </div>
     );
