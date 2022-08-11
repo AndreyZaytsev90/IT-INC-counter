@@ -6,31 +6,29 @@ type ScreenPropsType = {
     maxValue: number
     startValue: number
     value: number
-    error: string
+    isDisabled: boolean
 
 }
 
-export const Screen = ({maxValue, startValue, value, error}: ScreenPropsType) => {
+export const Screen = ({maxValue, startValue, value, isDisabled}: ScreenPropsType) => {
 
     const falseValue = startValue < 0 || startValue >= maxValue || maxValue < 0
-    const trueValue = value != startValue || startValue < maxValue
+    /*const trueValue = value != startValue || startValue < maxValue*/
 
-    const classError = error ? style.error : style.black
-    const colorNum = value < maxValue ? /*style.black*/classError : style.red
+    const colorNum = value < maxValue ? style.black: style.red
 
+    const message = !isDisabled && !falseValue ? `Enter value and press "Set"` : "Incorrect value"
 
-    const messageError = <div>Incorrect value</div>
-    const message = <div>Enter value and press "Set"</div>
     /*  const classValue = `${style.value} ${colorNum}`
       //const classError = error ? style.error: style.black
       const screen = `${error ? style.error: style.black} ${colorNum}`*/
-
+    console.log(!isDisabled || falseValue)
+    console.log(message)
 
     return (
         <div className={style.counterScreen}>
             {/*<div className={classValue}>{value}</div>
             <div >{startValue >= maxValue? enterValue : value}</div>*/}
-
             {/* {falseValue && falseValue
                 ? <div>Incorrect value!</div>
                 : <div>Enter value and press "Set"</div>}
@@ -38,10 +36,16 @@ export const Screen = ({maxValue, startValue, value, error}: ScreenPropsType) =>
             ? <div>{startValue <= maxValue? startValue: value}</div>
             : <div>{value}</div>}*/}
 
+            {!isDisabled && !falseValue && <div className={style.enterValue}>{message}</div>}
+            {falseValue && <div className={style.error}>{message}</div>}
+            {isDisabled && !falseValue && <div className={colorNum}>{value}</div>}
+
+         {/*   {falseValue && message}
+
             {falseValue
                     ? messageError
                     : trueValue
-                        ? message && <div className={colorNum}>{value}</div> : ''}
+                        ? message && <div className={colorNum}>{value}</div> : ''}*/}
         </div>
     );
 };

@@ -8,27 +8,21 @@ type MenuPropsType = {
     setMaxValue: (maxValue: number) => void
     startValue: number
     setStartValue: (startValue: number) => void
+    setIsDisabled: (value: boolean) => void
 }
 
-const Menu = ({maxValue, setMaxValue, startValue, setStartValue}: MenuPropsType) => {
+const Menu = ({maxValue, setMaxValue, startValue, setStartValue, setIsDisabled}: MenuPropsType) => {
 
-    /*const [text, setText] = useState<string>('')*/
-    const [errorInput, setErrorInput] = useState<string>('')
+    const showAlertMax = () => alert("Введено значение: " + maxValue)
+    const showAlertStart = () => alert("Введено значение: " + startValue)
 
-    const showAlertMax = () => {
-        if (errorInput) {
-            alert('введите число...')
-        } else {
-            alert(maxValue)
-        }
+    const maxInputHandler = (number: number) => {
+        setMaxValue(number)
+        setIsDisabled(false)
     }
-
-    const showAlertStart = () => {
-        if (errorInput) {
-            alert('введите число...')
-        } else {
-            alert(startValue)
-        }
+    const startInputHandler = (number: number) => {
+        setStartValue(number)
+        setIsDisabled(false)
     }
 
     return (
@@ -36,14 +30,12 @@ const Menu = ({maxValue, setMaxValue, startValue, setStartValue}: MenuPropsType)
 
             <div className={style.values}>
                 <div>Max Value:</div>
-                {/*  <input className={style.input} value={maxValue}  type="number" />*/}
-                <Input value={maxValue} onChangeText={setMaxValue} onEnter={showAlertMax}/>
+                <Input value={maxValue} onChangeText={maxInputHandler} onEnter={showAlertMax}/>
             </div>
 
             <div className={style.values}>
                 <div>Start Value:</div>
-                {/* <input className={style.input} value={startValue}  type="number"/>*/}
-                <Input value={startValue} onChangeText={setStartValue} onEnter={showAlertStart}/>
+                <Input value={startValue} onChangeText={startInputHandler} onEnter={showAlertStart}/>
             </div>
 
         </div>

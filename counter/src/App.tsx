@@ -7,14 +7,16 @@ import {Settings} from "./components/Settings";
 function App() {
     //// counter
     const [value, setValue] = useState<number>(0)
+
     const incButtonHandler = () => value < maxValue ? setValue(value + 1) : value
     const resetButtonHandler = () => value === maxValue ? setValue(0) : value
+
     ////
 
 
     const [maxValue, setMaxValue] = useState<number>(0)
     const [startValue, setStartValue] = useState<number>(0)
-    const [error, setError] = useState<string>('')
+    const [isDisabled, setIsDisabled] = useState(true)
 
 
     const setButtonHandler = () => {
@@ -22,14 +24,13 @@ function App() {
         if (value != startValue || startValue < maxValue) {
             setValue(startValue)
             setStartValue(startValue)
-            setError('')
+        }
+        if (startValue < 0 || startValue >= maxValue || maxValue < 0) {
+            setIsDisabled(false)
         } else {
-            setError("Incorrect value!")
+            setIsDisabled(true)
         }
 
-        if (startValue < 0 || startValue >= maxValue || maxValue < 0) {
-            setError("Incorrect value!")
-        }
 
     }
 
@@ -43,6 +44,8 @@ function App() {
                         startValue={startValue}
                         setStartValue={setStartValue}
                         setButtonHandler={setButtonHandler}
+                        isDisabled={isDisabled}
+                        setIsDisabled={setIsDisabled}
                     />
                 </div>
                 <div>
@@ -52,7 +55,7 @@ function App() {
                         value={value}
                         incButtonHandler={incButtonHandler}
                         resetButtonHandler={resetButtonHandler}
-                        error={error}
+                        isDisabled={isDisabled}
                     />
                 </div>
             </div>

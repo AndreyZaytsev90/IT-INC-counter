@@ -10,10 +10,19 @@ type SettingsPropsType = {
     startValue: number
     setStartValue: (startValue: number) => void
     setButtonHandler: () => void
+    isDisabled: boolean
+    setIsDisabled: (value: boolean) => void
 }
 
-export const Settings = ({maxValue, setMaxValue, startValue, setStartValue, setButtonHandler}: SettingsPropsType) => {
-
+export const Settings = ({
+                             maxValue,
+                             setMaxValue,
+                             startValue,
+                             setStartValue,
+                             setButtonHandler,
+                             isDisabled,
+                             setIsDisabled
+                         }: SettingsPropsType) => {
 
     return (
         <div>
@@ -22,11 +31,13 @@ export const Settings = ({maxValue, setMaxValue, startValue, setStartValue, setB
                 setMaxValue={setMaxValue}
                 startValue={startValue}
                 setStartValue={setStartValue}
+                setIsDisabled={setIsDisabled}
             />
             <div className={style.fieldWithButtons}>
                 <Button name={"Set"}
                         callBack={setButtonHandler}
-                        isDisabled={(startValue < 0 || startValue >= maxValue || maxValue < 0)}></Button>
+                    /*isDisabled={(startValue < 0 || startValue >= maxValue || maxValue < 0)}*/
+                        isDisabled={isDisabled}></Button>
             </div>
         </div>
     );

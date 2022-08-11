@@ -8,15 +8,19 @@
     height: 150px;
 
 }
-.value {
+.enterValue {
     display: flex;
     justify-content: center;
+    font-size: 25px;
+    margin-top: 50px;
+    color: black;
 }
 
 .error {
     display: flex;
     justify-content: center;
-    font-size: 30px;
+    font-size: 25px;
+    margin-top: 50px;
     color: red;
 }
 
