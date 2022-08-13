@@ -22,7 +22,8 @@ export const Settings = ({
                              setButtonHandler,
                              isDisabled,
                              setIsDisabled
-                         }: SettingsPropsType) => {
+                         }: Partial<SettingsPropsType>) => {
+
 
     return (
         <div>
@@ -34,10 +35,10 @@ export const Settings = ({
                 setIsDisabled={setIsDisabled}
             />
             <div className={style.fieldWithButtons}>
-                <Button name={"Set"}
+              {/*  <Button name={"Set"}
                         callBack={setButtonHandler}
-                    /*isDisabled={(startValue < 0 || startValue >= maxValue || maxValue < 0)}*/
-                        isDisabled={isDisabled}></Button>
+                    isDisabled={(startValue < 0 || startValue >= maxValue || maxValue < 0)}
+                        isDisabled={isDisabled}></Button>*/}
             </div>
         </div>
     );

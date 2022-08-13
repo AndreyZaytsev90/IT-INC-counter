@@ -29,3 +29,14 @@
     border-color: cornflowerblue;
 }
 
+.incorrectValue {
+    width: 100px;
+    height: 20px;
+    margin-left: 45px;
+    border-style: solid;
+    background: #ea4444;
+    border-width:  5px;
+    border-radius: 10px;
+    border-color: cornflowerblue;
+}
+

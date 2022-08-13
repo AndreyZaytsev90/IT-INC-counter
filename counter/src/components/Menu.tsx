@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import style from '../css/menu.module.css'
 import Input from "./Input";
 
@@ -11,18 +11,18 @@ type MenuPropsType = {
     setIsDisabled: (value: boolean) => void
 }
 
-const Menu = ({maxValue, setMaxValue, startValue, setStartValue, setIsDisabled}: MenuPropsType) => {
+const Menu = ({maxValue, setMaxValue, startValue, setStartValue, setIsDisabled}: Partial<MenuPropsType>) => {
 
     const showAlertMax = () => alert("Введено значение: " + maxValue)
     const showAlertStart = () => alert("Введено значение: " + startValue)
 
     const maxInputHandler = (number: number) => {
-        setMaxValue(number)
-        setIsDisabled(false)
+       // setMaxValue(number)
+       // setIsDisabled(false)
     }
     const startInputHandler = (number: number) => {
-        setStartValue(number)
-        setIsDisabled(false)
+       // setStartValue(number)
+      //  setIsDisabled(false)
     }
 
     return (
@@ -30,12 +30,20 @@ const Menu = ({maxValue, setMaxValue, startValue, setStartValue, setIsDisabled}:
 
             <div className={style.values}>
                 <div>Max Value:</div>
-                <Input value={maxValue} onChangeText={maxInputHandler} onEnter={showAlertMax}/>
+                <Input maxValue={maxValue}
+                       startValue={startValue}
+                       value={maxValue}
+                       onChangeText={maxInputHandler}
+                       onEnter={showAlertMax}/>
             </div>
 
             <div className={style.values}>
                 <div>Start Value:</div>
-                <Input value={startValue} onChangeText={startInputHandler} onEnter={showAlertStart}/>
+                <Input maxValue={maxValue}
+                       startValue={startValue}
+                       value={startValue}
+                       onChangeText={startInputHandler}
+                       onEnter={showAlertStart}/>
             </div>
 
         </div>
