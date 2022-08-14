@@ -19,15 +19,15 @@ export const counterReducer = (state: InitialStateType = initialState, action: A
       return {
         ...state, value: 0
       }
-    case "VALUE":
+    case "SET-VALUE":
       return {
         ...state, value: action.value
       }
-      case "START-VALUE":
+      case "SET-START-VALUE":
       return {
         ...state, startValue: action.startValue
       }
-    case "MAX-VALUE":
+    case "SET-MAX-VALUE":
       return {
         ...state, maxValue: action.maxValue
       }
@@ -42,9 +42,9 @@ export const counterReducer = (state: InitialStateType = initialState, action: A
 
 export const incValueAC = () => ({type: "INC-VALUE"} as const)
 export const resetValueAC = () => ({type: "RESET-VALUE"} as const)
-export const startValueAC = (startValue: number) => ({type: "START-VALUE", startValue} as const)
-export const valueAC = (value: number) => ({type: "VALUE", value} as const)
-export const maxValueAC = (maxValue: number) => ({type: "MAX-VALUE", maxValue} as const)
+export const startValueAC = (startValue: number) => ({type: "SET-START-VALUE", startValue} as const)
+export const valueAC = (value: number) => ({type: "SET-VALUE", value} as const)
+export const maxValueAC = (maxValue: number) => ({type: "SET-MAX-VALUE", maxValue} as const)
 export const setMessageAC = (message: string) => ({type: "SET-MESSAGE", message} as const)
 //export const isDisabledAC = (value: boolean) => ({type: "IS-DISABLED", value} as const)
 

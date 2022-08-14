@@ -72,7 +72,7 @@ function AppWithRedux() {
     //     dispatch(isDisabledAC(true))   //true
     // }
   }
-  const isSetDisabled = message !== 'Enter values and press set'
+  const isSetDisabled = (startValue < 0 || startValue >= maxValue || maxValue < 0) /*message !== 'Enter values and press set'*/
 
   return (
     <div className={style.content}>
@@ -84,8 +84,8 @@ function AppWithRedux() {
             startValue={startValue}
             //setStartValue={setStartValue}
             setButtonHandler={setButtonHandler}
-            isDisabled={isSetDisabled}
-            //setIsDisabled={setIsDisabled}
+            //isDisabled={isSetDisabled}
+            setIsDisabled={isSetDisabled}
           />
         </div>
         <div>
@@ -95,7 +95,7 @@ function AppWithRedux() {
             value={value}
             incButtonHandler={incButtonHandler}
             resetButtonHandler={resetButtonHandler}
-            //isDisabled={isDisabled}
+            setIsDisabled={isSetDisabled}
           />
         </div>
       </div>

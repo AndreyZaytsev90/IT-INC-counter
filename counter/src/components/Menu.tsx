@@ -23,13 +23,17 @@ const Menu = ({maxValue, startValue}: MenuPropsType) => {
         dispatch(maxValueAC(number))
         if (number < 0 || number <= startValue) {
             dispatch(setMessageAC('Incorrect values!'))
-        } else dispatch(setMessageAC('Enter values and press set'))
+        } else dispatch(setMessageAC(`Enter values and press "Set"`))
        // setMaxValue(number)
         //dispatch()
        // setIsDisabled(false)
     }
     const startInputHandler = (number: number) => {
         dispatch(startValueAC(number))
+
+        if(number < 0 || number >= maxValue) {
+            dispatch(setMessageAC('Incorrect values!'))
+        } else dispatch(setMessageAC(`Enter values and press "Set"`))
        // setStartValue(number)
       //  setIsDisabled(false)
     }

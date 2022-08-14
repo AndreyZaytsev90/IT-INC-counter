@@ -51,25 +51,25 @@ function App() {
         <div className={style.content}>
             <div className={style.advanceCounter}>
                 <div>
-                    <Settings
+                  {/*  <Settings
                         maxValue={maxValue}
                       //  setMaxValue={setMaxValue}
                         startValue={startValue}
                       //  setStartValue={setStartValue}
                         setButtonHandler={setButtonHandler}
-                        isDisabled={isDisabled}
+                        //isDisabled={isDisabled}
                       //  setIsDisabled={setIsDisabled}
-                    />
+                    />*/}
                 </div>
                 <div>
-                    <Counter
+                  {/*  <Counter
                         maxValue={maxValue}
                         startValue={startValue}
                         value={value}
                         incButtonHandler={incButtonHandler}
                         resetButtonHandler={resetButtonHandler}
                        // isDisabled={isDisabled}
-                    />
+                    />*/}
                 </div>
             </div>
         </div>

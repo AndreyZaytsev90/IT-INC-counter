@@ -13,12 +13,14 @@ type ScreenPropsType = {
 }
 
 export const Screen = ({maxValue, startValue, value}: ScreenPropsType) => {
+
     const message = useSelector<AppRootStateType, string>(state => state.counter.message)
 
     const falseValue = startValue < 0 || startValue >= maxValue || maxValue < 0
     /*const trueValue = value != startValue || startValue < maxValue*/
 
     const colorNum = value < maxValue ? style.black: style.red
+    const colorMessage = message !== `Enter values and press "Set"` ? style.error: style.enterValue
 
     //const message = !isDisabled && !falseValue ? `Enter value and press "Set"` : "Incorrect value"
 
@@ -38,7 +40,7 @@ export const Screen = ({maxValue, startValue, value}: ScreenPropsType) => {
             :{trueValue
             ? <div>{startValue <= maxValue? startValue: value}</div>
             : <div>{value}</div>}*/}
-            {message ? message : value}
+            {message ? <div className={colorMessage}>{message}</div> : <div className={colorNum}>{value}</div>}
 
             {/*{!isDisabled && !falseValue && <div className={style.enterValue}>{message}</div>}*/}
             {/*{falseValue && <div className={style.error}>{message}</div>}*/}
