@@ -6,39 +6,32 @@ import Menu from "./Menu";
 
 type SettingsPropsType = {
     maxValue: number
-    setMaxValue: (maxValue: number) => void
+    //setMaxValue: (maxValue: number) => void
     startValue: number
-    setStartValue: (startValue: number) => void
+    //setStartValue: (startValue: number) => void
     setButtonHandler: () => void
     isDisabled: boolean
-    setIsDisabled: (value: boolean) => void
+    //setIsDisabled: (value: boolean) => void
 }
 
 export const Settings = ({
                              maxValue,
-                             setMaxValue,
                              startValue,
-                             setStartValue,
                              setButtonHandler,
                              isDisabled,
-                             setIsDisabled
-                         }: Partial<SettingsPropsType>) => {
-
+                         }: SettingsPropsType) => {
 
     return (
         <div>
             <Menu
                 maxValue={maxValue}
-                setMaxValue={setMaxValue}
                 startValue={startValue}
-                setStartValue={setStartValue}
-                setIsDisabled={setIsDisabled}
             />
             <div className={style.fieldWithButtons}>
-              {/*  <Button name={"Set"}
+                <Button name={"Set"}
                         callBack={setButtonHandler}
-                    isDisabled={(startValue < 0 || startValue >= maxValue || maxValue < 0)}
-                        isDisabled={isDisabled}></Button>*/}
+                    /*isDisabled={(startValue < 0 || startValue >= maxValue || maxValue < 0)}*/
+                        isDisabled={isDisabled}/>
             </div>
         </div>
     );

@@ -1,26 +1,35 @@
 import React from 'react';
 import style from '../css/menu.module.css'
 import Input from "./Input";
+import {useDispatch} from "react-redux";
+import {maxValueAC, setMessageAC, startValueAC} from "../store/counter-reducer";
 
 
 type MenuPropsType = {
     maxValue: number
-    setMaxValue: (maxValue: number) => void
+    //setMaxValue: (maxValue: number) => void
     startValue: number
-    setStartValue: (startValue: number) => void
-    setIsDisabled: (value: boolean) => void
+    //setStartValue: (startValue: number) => void
+    //setIsDisabled: (value: boolean) => void
 }
 
-const Menu = ({maxValue, setMaxValue, startValue, setStartValue, setIsDisabled}: Partial<MenuPropsType>) => {
+const Menu = ({maxValue, startValue}: MenuPropsType) => {
+    const dispatch = useDispatch()
 
     const showAlertMax = () => alert("Введено значение: " + maxValue)
     const showAlertStart = () => alert("Введено значение: " + startValue)
 
     const maxInputHandler = (number: number) => {
+        dispatch(maxValueAC(number))
+        if (number < 0 || number <= startValue) {
+            dispatch(setMessageAC('Incorrect values!'))
+        } else dispatch(setMessageAC('Enter values and press set'))
        // setMaxValue(number)
+        //dispatch()
        // setIsDisabled(false)
     }
     const startInputHandler = (number: number) => {
+        dispatch(startValueAC(number))
        // setStartValue(number)
       //  setIsDisabled(false)
     }

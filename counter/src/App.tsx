@@ -53,12 +53,12 @@ function App() {
                 <div>
                     <Settings
                         maxValue={maxValue}
-                        setMaxValue={setMaxValue}
+                      //  setMaxValue={setMaxValue}
                         startValue={startValue}
-                        setStartValue={setStartValue}
+                      //  setStartValue={setStartValue}
                         setButtonHandler={setButtonHandler}
                         isDisabled={isDisabled}
-                        setIsDisabled={setIsDisabled}
+                      //  setIsDisabled={setIsDisabled}
                     />
                 </div>
                 <div>
@@ -68,7 +68,7 @@ function App() {
                         value={value}
                         incButtonHandler={incButtonHandler}
                         resetButtonHandler={resetButtonHandler}
-                        isDisabled={isDisabled}
+                       // isDisabled={isDisabled}
                     />
                 </div>
             </div>
