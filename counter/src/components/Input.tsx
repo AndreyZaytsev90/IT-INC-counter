@@ -1,7 +1,7 @@
 import React, {ChangeEvent, KeyboardEvent} from 'react';
 import style from "../css/menu.module.css";
 import {useSelector} from "react-redux";
-import {AppRootStateType} from "../store/store";
+import {AppRootStateType} from "../bll/store";
 
 type InputPropsType = {
     maxValue: number

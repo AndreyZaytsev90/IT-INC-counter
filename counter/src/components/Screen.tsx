@@ -1,7 +1,7 @@
 import React from 'react';
 import style from "../css/screen.module.css"
 import {useSelector} from "react-redux";
-import {AppRootStateType} from "../store/store";
+import {AppRootStateType} from "../bll/store";
 
 
 type ScreenPropsType = {

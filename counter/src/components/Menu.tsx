@@ -1,41 +1,32 @@
 import React from 'react';
 import style from '../css/menu.module.css'
 import Input from "./Input";
-import {useDispatch} from "react-redux";
-import {maxValueAC, setMessageAC, startValueAC} from "../store/counter-reducer";
+import {maxValueTC, setMessageAC, startValueTC} from "../bll/counter-reducer";
+import {useAppDispatch} from "../bll/store";
 
 
 type MenuPropsType = {
     maxValue: number
-    //setMaxValue: (maxValue: number) => void
     startValue: number
-    //setStartValue: (startValue: number) => void
-    //setIsDisabled: (value: boolean) => void
 }
 
 const Menu = ({maxValue, startValue}: MenuPropsType) => {
-    const dispatch = useDispatch()
+    const dispatch = useAppDispatch()
 
     const showAlertMax = () => alert("Введено значение: " + maxValue)
     const showAlertStart = () => alert("Введено значение: " + startValue)
 
-    const maxInputHandler = (number: number) => {
-        dispatch(maxValueAC(number))
-        if (number < 0 || number <= startValue) {
+    const maxInputHandler = (value: number) => {
+        dispatch(maxValueTC(value))
+        if (value < 0 || value <= startValue) {
             dispatch(setMessageAC('Incorrect values!'))
         } else dispatch(setMessageAC(`Enter values and press "Set"`))
-       // setMaxValue(number)
-        //dispatch()
-       // setIsDisabled(false)
     }
-    const startInputHandler = (number: number) => {
-        dispatch(startValueAC(number))
-
-        if(number < 0 || number >= maxValue) {
+    const startInputHandler = (value: number) => {
+        dispatch(startValueTC(value))
+        if(value < 0 || value >= maxValue) {
             dispatch(setMessageAC('Incorrect values!'))
         } else dispatch(setMessageAC(`Enter values and press "Set"`))
-       // setStartValue(number)
-      //  setIsDisabled(false)
     }
 
     return (
