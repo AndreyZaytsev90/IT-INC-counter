@@ -1,14 +1,14 @@
-import React, {useEffect} from 'react';
+import React, {/*useEffect*/} from 'react';
 import style from './css/advanceCounter.module.css';
 import Counter from "./components/Counter";
 import {Settings} from "./components/Settings";
 import {
     incValueAC,
-    maxValueAC,
+   // maxValueAC,
     resetValueAC,
-    setMaxValueFromLocalStorageTC,
-    setMessageAC, setStartValueFromLocalStorageTC,
-    startValueAC,
+    //setMaxValueFromLocalStorageTC,
+    setMessageAC, //setStartValueFromLocalStorageTC,
+   // startValueAC,
     valueAC
 } from "./bll/counter-reducer";
 import {useDispatch, useSelector} from "react-redux";
@@ -27,7 +27,7 @@ function AppWithRedux() {
     const value = useSelector<AppRootStateType, number>(state => state.counter.value)
     const maxValue = useSelector<AppRootStateType, number>(state => state.counter.maxValue)
     const startValue = useSelector<AppRootStateType, number>(state => state.counter.startValue)
-    const message = useSelector<AppRootStateType, string>(state => state.counter.message)
+    //const message = useSelector<AppRootStateType, string>(state => state.counter.message)
     const dispatch = useAppDispatch()
 
     const incButtonHandler = () => {
@@ -41,10 +41,10 @@ function AppWithRedux() {
     }
 
     ///////////////////////////localStorage/////////////////////////////////
-    useEffect(() => {
+   /* useEffect(() => {
         dispatch(setMaxValueFromLocalStorageTC())
         dispatch(setStartValueFromLocalStorageTC())
-    }, [])
+    }, [])*/
     /////////////////////////////////////////////////////////////////////////
 
     const setButtonHandler = () => {

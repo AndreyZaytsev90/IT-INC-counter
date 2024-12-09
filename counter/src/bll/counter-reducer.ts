@@ -58,8 +58,8 @@ export const setMessageAC = (message: string) => ({type: "SET-MESSAGE", message}
 //export const isDisabledAC = (value: boolean) => ({type: "IS-DISABLED", value} as const)
 
 //Thunk
-
-export const maxValueTC = (value: number): AppThunk => (dispatch: AppDispatch) => {
+//теперь все через store
+/*export const maxValueTC = (value: number): AppThunk => (dispatch: AppDispatch) => {
     localStorage.setItem('counterMaxValue', JSON.stringify(value))
     dispatch(maxValueAC(value))
 }
@@ -83,7 +83,7 @@ export const setStartValueFromLocalStorageTC = (): AppThunk => (dispatch: AppDis
         let newStartValue = JSON.parse(startValueAsString)
         dispatch(startValueAC(newStartValue))
     }
-}
+}*/
 
 
 type IncValueActionType = ReturnType<typeof incValueAC>

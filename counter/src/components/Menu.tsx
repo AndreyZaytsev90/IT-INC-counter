@@ -1,7 +1,12 @@
 import React from 'react';
 import style from '../css/menu.module.css'
 import Input from "./Input";
-import {maxValueTC, setMessageAC, startValueTC} from "../bll/counter-reducer";
+import {maxValueAC,
+    //maxValueTC,
+    setMessageAC,
+    startValueAC,
+    //startValueTC
+} from "../bll/counter-reducer";
 import {useAppDispatch} from "../bll/store";
 
 
@@ -17,13 +22,15 @@ const Menu = ({maxValue, startValue}: MenuPropsType) => {
     const showAlertStart = () => alert("Введено значение: " + startValue)
 
     const maxInputHandler = (value: number) => {
-        dispatch(maxValueTC(value))
+        //dispatch(maxValueTC(value)) - санки теперь не нужны, делаем через store
+        dispatch(maxValueAC(value))
         if (value < 0 || value <= startValue) {
             dispatch(setMessageAC('Incorrect values!'))
         } else dispatch(setMessageAC(`Enter values and press "Set"`))
     }
     const startInputHandler = (value: number) => {
-        dispatch(startValueTC(value))
+        //dispatch(startValueTC(value))- санки теперь не нужны, делаем через store
+        dispatch(startValueAC(value))
         if(value < 0 || value >= maxValue) {
             dispatch(setMessageAC('Incorrect values!'))
         } else dispatch(setMessageAC(`Enter values and press "Set"`))
